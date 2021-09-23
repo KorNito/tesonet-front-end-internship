@@ -3,37 +3,41 @@ const toDoButton = document.querySelector(".todo-button");
 const toDoList = document.querySelector(".todo-list");
 const inputErrorMessage = document.querySelector(".error");
 
-toDoButton.addEventListener("click", addTodo);
+toDoButton.addEventListener("click", submitForm);
 toDoList.addEventListener("click", handleToDoAction);
 
-function addTodo(event) {
+function submitForm(event) {
   event.preventDefault();
 
   if (toDoInput.value.trim() === "") {
     showErrorMessage();
   } else {
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo-div");
-
-    const newTodo = document.createElement("li");
-    newTodo.innerText = toDoInput.value;
-    newTodo.classList.add("todo-li");
-    todoDiv.appendChild(newTodo);
-
-    const markButton = document.createElement("button");
-    markButton.innerText = "Mark";
-    markButton.classList.add("mark-button");
-    todoDiv.appendChild(markButton);
-
-    const removeButton = document.createElement("button");
-    removeButton.innerText = "Remove";
-    removeButton.classList.add("remove-button");
-    todoDiv.appendChild(removeButton);
-
-    toDoList.appendChild(todoDiv);
-
-    toDoInput.value = "";
+    addToDo();
   }
+}
+
+function addToDo() {
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo-div");
+
+  const newTodo = document.createElement("li");
+  newTodo.innerText = toDoInput.value;
+  newTodo.classList.add("todo-li");
+  todoDiv.appendChild(newTodo);
+
+  const markButton = document.createElement("button");
+  markButton.innerText = "Mark";
+  markButton.classList.add("mark-button");
+  todoDiv.appendChild(markButton);
+
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "Remove";
+  removeButton.classList.add("remove-button");
+  todoDiv.appendChild(removeButton);
+
+  toDoList.appendChild(todoDiv);
+
+  toDoInput.value = "";
 }
 
 function handleToDoAction(event) {
