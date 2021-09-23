@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+form {
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+}
+
+.todo-input {
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+}
+
+.todo-button {
+  width: 40px;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 25px;
+  background: #68676b;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+
+.todo-button:hover {
+  background: #3a393b;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+  margin-bottom: 1rem;
+}
+
+.todo-li {
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.mark-button {
+  padding: 0 8px 0 8px;
+  margin-left: 5px;
+  background: #22c272;
+  height: 40px;
+  width: 60px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.mark-button:hover {
+  background: #17834d;
+}
+
+.remove-button {
+  padding: 0 2px 0 2px;
+  margin-left: 5px;
+  background: #d44030;
+  height: 40px;
+  width: 75px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.remove-button:hover {
+  background: #c01a1a;
+}
+
+.marked {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
