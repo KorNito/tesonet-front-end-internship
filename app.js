@@ -16,8 +16,12 @@ function displayToDos() {
 function submitForm(event) {
   event.preventDefault();
 
+  const toDoExistInLocalStorage = checkIfIExistsInLocalStorage(toDoInput.value);
+
   if (toDoInput.value.trim() === "") {
-    showErrorMessage();
+    showErrorMessage("Input field must not be empty");
+  } else if (toDoExistInLocalStorage) {
+    showErrorMessage("To do already exists");
   } else {
     let toDo = {
       name: toDoInput.value,
@@ -66,13 +70,13 @@ function handleToDoAction(event) {
   }
 }
 
-function showErrorMessage() {
+function showErrorMessage(message) {
   const errorDiv = document.createElement("div");
   errorDiv.classList.add("error-container");
 
   const errorParagraph = document.createElement("p");
   errorParagraph.classList.add("error-message");
-  errorParagraph.innerText = "Input field must not be empty";
+  errorParagraph.innerText = message;
   errorDiv.appendChild(errorParagraph);
 
   const form = document.querySelector(".form");
@@ -111,4 +115,17 @@ function removeToDoFromLocalStorage(toDoName) {
   });
 
   localStorage.setItem("toDos", JSON.stringify(toDos));
+}
+
+function checkIfIExistsInLocalStorage(toDoName) {
+  const items = localStorage.getItem("toDos");
+
+  let itemExists = false;
+
+  if (items) {
+    const itemsData = JSON.parse(items);
+    itemExists = itemsData.find((item) => item.name === toDoName);
+  }
+
+  return itemExists;
 }
